@@ -1,0 +1,11 @@
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XCalculator\bin\Debug\netcoreapp2.1\XCalculator.deps.json
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XCalculator\bin\Debug\netcoreapp2.1\XCalculator.runtimeconfig.json
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XCalculator\bin\Debug\netcoreapp2.1\XCalculator.runtimeconfig.dev.json
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XCalculator\bin\Debug\netcoreapp2.1\XCalculator.dll
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XCalculator\bin\Debug\netcoreapp2.1\XCalculator.pdb
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XCalculator\obj\Debug\netcoreapp2.1\XCalculator.csprojAssemblyReference.cache
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XCalculator\obj\Debug\netcoreapp2.1\XCalculator.csproj.CoreCompileInputs.cache
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XCalculator\obj\Debug\netcoreapp2.1\XCalculator.AssemblyInfoInputs.cache
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XCalculator\obj\Debug\netcoreapp2.1\XCalculator.AssemblyInfo.cs
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XCalculator\obj\Debug\netcoreapp2.1\XCalculator.dll
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XCalculator\obj\Debug\netcoreapp2.1\XCalculator.pdb
