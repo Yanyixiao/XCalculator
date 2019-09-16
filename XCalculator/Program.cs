@@ -1,28 +1,37 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Yanyixiao
 {
     class Program
     {
+       
         public class Formula
         {
             public string Form { get; internal set; }
-            public Stack Formstack { get; internal set; }
+            public Stack<string> Formstack = new Stack<string>();
         }
 
-        static string[] op = { "+", "-", "*", "/" };// Operation set
+        public  static string[] op = { "+", "-", "*", "/" };// Operation set
         static void Main(string[] args)
         {
-            Formula question = MakeFormula();
-            System.Console.WriteLine(question.Form);
-            string ret = Solve(question);
-            System.Console.WriteLine(ret);
+            int i;
+            System.Console.WriteLine("请输入需要的题目数量：");
+            int n = Convert.ToInt32(System.Console.ReadLine());
+            for (i = 0; i < n; i++)
+            {
+                Formula question = MakeFormula();
+                System.Console.Write(question.Form);
+                System.Console.Write("=");
+                string ret = Solve(question);
+                System.Console.WriteLine(ret);
+            }
 
         }
 
 
-        public static  Formula MakeFormula()
+        public static Formula MakeFormula()
         {
             Random ran = new Random();
             Formula Form = new Formula();
@@ -31,14 +40,15 @@ namespace Yanyixiao
             int start = 0;
             int number1 = ran.Next(1, 99);
             build = build + number1;
-            Form.Formstack.Push(number1);
+            Form.Formstack.Push(Convert.ToString(number1));//uytd 8796r756eu675v 786f876v
+
             while (start <= count)
             {
                 int operation = (int)ran.Next(0, 3); ; // generate operator
                 int number2 = (int)ran.Next(1, 99);
                 build = build + op[operation] + number2;
                 Form.Formstack.Push(op[operation]);
-                Form.Formstack.Push(number2);
+                Form.Formstack.Push(Convert.ToString(number2));
                 start++;
             }
             Form.Form = build;
@@ -48,12 +58,12 @@ namespace Yanyixiao
 
         public static string Solve(Formula formula)
         {
-            Stack numberStack = new Stack(60);//Store number
-            Stack operatorStack = new Stack(60);//Store operator
+            Stack<string> numberStack = new Stack<string>();//Store number
+            Stack<string> operatorStack = new Stack<string>();//Store operator
             while (!(formula.Formstack.Count == 0))
             {
-                if (!((string)formula.Formstack.Peek() == "+" || (string)formula.Formstack.Peek() == "-" 
-                    || (string)formula.Formstack.Peek() == "*" || (string)formula.Formstack.Peek() == "/"))//判断是否数字或者operator
+                if (!(formula.Formstack.Peek() == "+" || formula.Formstack.Peek() == "-" 
+                   || formula.Formstack.Peek() == "*" || formula.Formstack.Peek() == "/"))//判断是否数字或者operator
                 {
                     numberStack.Push(formula.Formstack.Pop());
                 }//如果是数字，压入numberStack
@@ -62,14 +72,15 @@ namespace Yanyixiao
                     if((string)formula.Formstack.Peek() == "*")
                     {
                         formula.Formstack.Pop(); 
-                        int temp = (int)formula.Formstack.Pop() * (int)numberStack.Pop();
-                        numberStack.Push(temp);
+                        int temp = int.Parse(formula.Formstack.Pop()) * int.Parse(numberStack.Pop());
+                        numberStack.Push(Convert.ToString(temp));
+
                     }//如果栈顶为“*”。弹出numberStack栈顶和Formstack自上而下第一个数字，用于计算。
                     else if((string)formula.Formstack.Peek() == "/")
                     {
                         formula.Formstack.Pop();
-                        int temp = (int)formula.Formstack.Pop() / (int)numberStack.Pop();
-                        numberStack.Push(temp);
+                        int temp = int.Parse(formula.Formstack.Pop()) / int.Parse(numberStack.Pop());
+                        numberStack.Push(Convert.ToString(temp));
                     }//如果栈顶为“/”。弹出numberStack栈顶和Formstack自上而下第一个数字，用于计算。
                     else if((string)formula.Formstack.Peek() == "+"|| (string)formula.Formstack.Peek() == "-")
                     {
@@ -82,14 +93,14 @@ namespace Yanyixiao
                 if ((string)operatorStack.Peek() == "+")
                 {
                     operatorStack.Pop();
-                    int temp = (int)numberStack.Pop() + (int)numberStack.Pop();
-                    numberStack.Push(temp);
+                    int temp = int.Parse(numberStack.Pop()) + int.Parse(numberStack.Pop());
+                    numberStack.Push(Convert.ToString(temp));
                 
                 }else if ((string)operatorStack.Peek() == "-")
                 {
                     operatorStack.Pop();
-                    int temp = (int)numberStack.Pop() - (int)numberStack.Pop();
-                    numberStack.Push(temp);
+                    int temp = int.Parse(numberStack.Pop()) - int.Parse(numberStack.Pop());
+                    numberStack.Push(Convert.ToString(temp));
                 }
 
             }//计算加减法
@@ -97,36 +108,11 @@ namespace Yanyixiao
   
         }
     }
+
+
 }
 
 
-class Stack
-{
-    public int Count = 0;
-    public object[] s;
-    object y;
-
-
-    public Stack(int len)
-    {
-        s = new object[len];
-    }
-    public object Peek()
-    {
-        return s[Count];
-    }
-    public void Push(object x)
-    {
-        s[Count] = x;
-        Count++;
-    }
-    public object Pop()
-    {
-        y = s[Count];
-        Count--;
-        return y;
-    }
-}
 //废弃代码 XD
 
 
