@@ -44,8 +44,8 @@ namespace Yanyixiao
 
             while (start <= count)
             {
-                int operation = (int)ran.Next(0, 3); ; // generate operator
-                int number2 = (int)ran.Next(1, 99);
+                int operation = (int)ran.Next(0, 4); ; // generate operator
+                int number2 = (int)ran.Next(2, 99);
                 build = build + op[operation] + number2;
                 Form.Formstack.Push(op[operation]);
                 Form.Formstack.Push(Convert.ToString(number2));
@@ -79,7 +79,19 @@ namespace Yanyixiao
                     else if((string)formula.Formstack.Peek() == "/")
                     {
                         formula.Formstack.Pop();
-                        int temp = int.Parse(formula.Formstack.Pop()) / int.Parse(numberStack.Pop());
+                        double numerator, denominator;
+                        numerator = int.Parse(formula.Formstack.Pop());
+                        while(int.Parse(numberStack.Peek()) == 0)
+                        {
+                            Solve(MakeFormula());
+                        }
+                        denominator = 1 / int.Parse(numberStack.Pop());
+                        while((numerator*denominator)%1-1>=1e-5)
+                        {
+                            Solve(MakeFormula());
+                        }
+
+                        double temp = numerator * denominator;
                         numberStack.Push(Convert.ToString(temp));
                     }//如果栈顶为“/”。弹出numberStack栈顶和Formstack自上而下第一个数字，用于计算。
                     else if((string)formula.Formstack.Peek() == "+"|| (string)formula.Formstack.Peek() == "-")
