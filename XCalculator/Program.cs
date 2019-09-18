@@ -12,7 +12,7 @@ namespace Yanyixiao
         public class Formula
         {
             public string Form { get; internal set; }
-            public Stack<string> Formstack = new Stack<string>();
+            public Queue<string> FormQueue =new Queue<string>();
         }
 
         public static string[] op = { "+", "-", "*", "/" };// Operation set
@@ -24,10 +24,11 @@ namespace Yanyixiao
             for (i = 0; i < n; i++)
             {
                 Formula question = MakeFormula();
-                System.Console.Write(question.Form);
-                System.Console.Write("=");
                 string ret = Solve(question);
-                System.Console.WriteLine(ret);
+                    System.Console.Write(question.Form);
+                    System.Console.Write("=");
+                    System.Console.WriteLine(ret);
+
             }
 
         }
@@ -38,19 +39,19 @@ namespace Yanyixiao
             Random ran = new Random();
             Formula Form = new Formula();
             string build = null;
-            int count = (int)ran.Next(1, 3); // generate random count
+            int count = ran.Next(1, 3); // generate random count
             int start = 0;
             int number1 = ran.Next(1, 99);
             build = build + number1;
-            Form.Formstack.Push(Convert.ToString(number1));//uytd 8796r756eu675v 786f876v
+            Form.FormQueue.Enqueue(Convert.ToString(number1));//uytd 8796r756eu675v 786f876v
 
             while (start <= count)
             {
-                int operation = (int)ran.Next(0, 3); ; // generate operator
-                int number2 = (int)ran.Next(1, 99);
+                int operation = ran.Next(0, 4); ; // generate operator
+                int number2 = ran.Next(1, 99);
                 build = build + op[operation] + number2;
-                Form.Formstack.Push(op[operation]);
-                Form.Formstack.Push(Convert.ToString(number2));
+                Form.FormQueue.Enqueue(op[operation]);
+                Form.FormQueue.Enqueue(Convert.ToString(number2));
                 start++;
             }
             Form.Form = build;
@@ -60,60 +61,119 @@ namespace Yanyixiao
 
         public static string Solve(Formula formula)
         {
-            Stack<string> numberStack = new Stack<string>();//Store number
-            Stack<string> operatorStack = new Stack<string>();//Store operator
-            while (!(formula.Formstack.Count == 0))
+            Stack<double> numberStack = new Stack<double>();//Store number
+            Stack operatorStack = new Stack();//Store operator
+            while (!(formula.FormQueue.Count == 0))
             {
-                if (!(formula.Formstack.Peek() == "+" || formula.Formstack.Peek() == "-"
-                   || formula.Formstack.Peek() == "*" || formula.Formstack.Peek() == "/"))//判断是否数字或者operator
+                if (!(formula.FormQueue.Peek() == "+" || formula.FormQueue.Peek() == "-"
+                   || formula.FormQueue.Peek() == "*" || formula.FormQueue.Peek() == "/"))//判断是否数字或者operator
                 {
-                    numberStack.Push(formula.Formstack.Pop());
-                }//如果是数字，压入numberStack
+                    numberStack.Push(Convert.ToDouble(formula.FormQueue.Dequeue()));
+                }
                 else
                 {
-                    if ((string)formula.Formstack.Peek() == "*")
-                    {
-                        formula.Formstack.Pop();
-                        int temp = int.Parse(formula.Formstack.Pop()) * int.Parse(numberStack.Pop());
-                        numberStack.Push(Convert.ToString(temp));
 
-                    }//如果栈顶为“*”。弹出numberStack栈顶和Formstack自上而下第一个数字，用于计算。
-                    else if ((string)formula.Formstack.Peek() == "/")
+                    double X, Y;
+                    switch (formula.FormQueue.Dequeue())
                     {
-                        formula.Formstack.Pop();
-                        int temp = int.Parse(formula.Formstack.Pop()) / int.Parse(numberStack.Pop());
-                        numberStack.Push(Convert.ToString(temp));
-                    }//如果栈顶为“/”。弹出numberStack栈顶和Formstack自上而下第一个数字，用于计算。
-                    else if ((string)formula.Formstack.Peek() == "+" || (string)formula.Formstack.Peek() == "-")
-                    {
-                        operatorStack.Push(formula.Formstack.Pop());
+                        case "*":
+                            X = numberStack.Pop();
+                            Y = Convert.ToDouble(formula.FormQueue.Dequeue());
+                            numberStack.Push(X * Y);
+                            goto First;
+
+                        case "/":
+                            X = numberStack.Pop();
+                            Y = Convert.ToDouble(formula.FormQueue.Dequeue());
+                            numberStack.Push(X / Y);
+                            goto First;
+
+
+                        case "+":
+                            operatorStack.Push("+");
+                            goto First;
+
+                        case "-":
+                            operatorStack.Push("-");
+                            goto First;
                     }
-                }//非数字的处理方法
-            }//计算算式中的乘除法，转化成加减法存入numberStack和opStack中
-            while (!(numberStack.Count == 1))
+                First:;
+                }
+              
+            }//乘除法计算完毕
+            while (numberStack.Count >1)
             {
-                if ((string)operatorStack.Peek() == "+")
+
+                switch(operatorStack.Peek())
                 {
-                    operatorStack.Pop();
-                    int temp = int.Parse(numberStack.Pop()) + int.Parse(numberStack.Pop());
-                    numberStack.Push(Convert.ToString(temp));
+                    case "+":
+                        numberStack.Push((Convert.ToDouble(numberStack.Pop()) + Convert.ToDouble(numberStack.Pop())));
+                        goto Second;
+
+                    case "-":
+                        double X, Y;
+                        X = Convert.ToDouble(numberStack.Pop());
+                        Y = Convert.ToDouble(numberStack.Pop());
+                        numberStack.Push(Y - X);
+                        goto Second;
 
                 }
-                else if ((string)operatorStack.Peek() == "-")
-                {
-                    operatorStack.Pop();
-                    int temp = int.Parse(numberStack.Pop()) - int.Parse(numberStack.Pop());
-                    numberStack.Push(Convert.ToString(temp));
-                }
+            Second:;
 
-            }//计算加减法
-            return (string)numberStack.Pop();
+                
 
+            }
+            return Convert.ToString(numberStack.Pop());
         }
     }
-
-
 }
+
+                //如果是数字，压入numberStack
+                //                else
+                //                {
+                //                    if ((string)formula.Formstack.Peek() == "*")
+                //                    {
+                //                        formula.Formstack.Pop();
+                //                        int temp = int.Parse(formula.Formstack.Pop()) * int.Parse(numberStack.Pop());
+                //                        numberStack.Push(Convert.ToString(temp));
+
+//                    }//如果栈顶为“*”。弹出numberStack栈顶和Formstack自上而下第一个数字，用于计算。
+//                    else if ((string)formula.Formstack.Peek() == "/")
+//                    {
+//                        formula.Formstack.Pop();
+//                        int temp = int.Parse(formula.Formstack.Pop()) / int.Parse(numberStack.Pop());
+//                        numberStack.Push(Convert.ToString(temp));
+//                    }//如果栈顶为“/”。弹出numberStack栈顶和Formstack自上而下第一个数字，用于计算。
+//                    else if ((string)formula.Formstack.Peek() == "+" || (string)formula.Formstack.Peek() == "-")
+//                    {
+//                        operatorStack.Push(formula.Formstack.Pop());
+//                    }
+//                }//非数字的处理方法
+//            }//计算算式中的乘除法，转化成加减法存入numberStack和opStack中
+//            while (!(numberStack.Count == 1))
+//            {
+//                if ((string)operatorStack.Peek() == "+")
+//                {
+//                    operatorStack.Pop();
+//                    int temp = int.Parse(numberStack.Pop()) + int.Parse(numberStack.Pop());
+//                    numberStack.Push(Convert.ToString(temp));
+
+//                }
+//                else if ((string)operatorStack.Peek() == "-")
+//                {
+//                    operatorStack.Pop();
+//                    int temp = int.Parse(numberStack.Pop()) - int.Parse(numberStack.Pop());
+//                    numberStack.Push(Convert.ToString(temp));
+//                }
+
+//            }//计算加减法
+//            return (string)numberStack.Pop();
+
+//        }
+//    }
+
+
+//}
 
 
 //废弃代码 XD
