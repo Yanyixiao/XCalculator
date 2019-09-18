@@ -28,11 +28,22 @@ Git用户名|
 + 照着Java版本的Calculator写了好久，有一个问题还没解决，但是已经很饿了。（09152019 7:00pm）
 
 
++ 代码最终是写完了。（09182019）
++ 我将代码贴到了我的github上并选择了public公开。
++ 欢迎大家Fork，点点Star。[点击转到Github查看代码](https://github.com/Yanyixiao/XCalculator/blob/master/XCalculator/Program.cs)
+
+
 ##### Part 3.单元测试
-+ Step 1.新建测试方案
-  右键单击解决方案，可以添加一个新建项目，在类型里选择`单元测试`，我这里新建了一个名为 `UnitTestCalculator`的单元测试项目。
-+ Step 2.添加引用
-  右键新建的单元测试`引用`，选择项目`UnitTestCalculator`。
++ 因为项目小，在debug过程中已经完成测试了。
+  
+##### Part 4.效能工具
+尝试查看CPU使用率，实际上使用率很低，但是也没学过怎么优化，听说可以多利用其他线程。
+也只是听说，不一定对，没了解过。
+
+##### Part.5 提交代码
+利用`git commit -m"message"` `git push` 等命令行，提交了十次，但是我还是很不擅长分支管理，有很多分支都很乱，还有Visual Studio 2019版本里自带`push` `commit` 等功能，地表最强编译器不是盖的。
+
+至此，整个教程完成啦。
 
 
   
