@@ -25,9 +25,9 @@ namespace Yanyixiao
             {
                 Formula question = MakeFormula();
                 string ret = Solve(question);
-                    System.Console.Write(question.Form);
-                    System.Console.Write("=");
-                    System.Console.WriteLine(ret);
+                System.Console.Write(question.Form);
+                System.Console.Write("=");
+                System.Console.WriteLine(ret);
 
             }
 
