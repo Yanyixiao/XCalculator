@@ -1,0 +1,126 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\xiaox\\Desktop\\XCalculator\\XCalculator\\XUnitTestCalculator\\XUnitTestCalculator.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\xiaox\\Desktop\\XCalculator\\XCalculator\\XCalculator\\XCalculator.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\xiaox\\Desktop\\XCalculator\\XCalculator\\XCalculator\\XCalculator.csproj",
+        "projectName": "XCalculator",
+        "projectPath": "C:\\Users\\xiaox\\Desktop\\XCalculator\\XCalculator\\XCalculator\\XCalculator.csproj",
+        "packagesPath": "C:\\Users\\xiaox\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\xiaox\\Desktop\\XCalculator\\XCalculator\\XCalculator\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\xiaox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\xiaox\\Desktop\\XCalculator\\XCalculator\\XUnitTestCalculator\\XUnitTestCalculator.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\xiaox\\Desktop\\XCalculator\\XCalculator\\XUnitTestCalculator\\XUnitTestCalculator.csproj",
+        "projectName": "XUnitTestCalculator",
+        "projectPath": "C:\\Users\\xiaox\\Desktop\\XCalculator\\XCalculator\\XUnitTestCalculator\\XUnitTestCalculator.csproj",
+        "packagesPath": "C:\\Users\\xiaox\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\xiaox\\Desktop\\XCalculator\\XCalculator\\XUnitTestCalculator\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\xiaox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "C:\\Users\\xiaox\\Desktop\\XCalculator\\XCalculator\\XCalculator\\XCalculator.csproj": {
+                "projectPath": "C:\\Users\\xiaox\\Desktop\\XCalculator\\XCalculator\\XCalculator\\XCalculator.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\obj\Debug\netcoreapp2.1\XUnitTestCalculator.csprojAssemblyReference.cache
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\obj\Debug\netcoreapp2.1\XUnitTestCalculator.csproj.CoreCompileInputs.cache
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\obj\Debug\netcoreapp2.1\XUnitTestCalculator.AssemblyInfoInputs.cache
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\obj\Debug\netcoreapp2.1\XUnitTestCalculator.AssemblyInfo.cs
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\bin\Debug\netcoreapp2.1\XUnitTestCalculator.deps.json
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\bin\Debug\netcoreapp2.1\XUnitTestCalculator.runtimeconfig.json
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\bin\Debug\netcoreapp2.1\XUnitTestCalculator.runtimeconfig.dev.json
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\bin\Debug\netcoreapp2.1\XUnitTestCalculator.dll
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\bin\Debug\netcoreapp2.1\XUnitTestCalculator.pdb
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\bin\Debug\netcoreapp2.1\XCalculator.dll
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\bin\Debug\netcoreapp2.1\XCalculator.pdb
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\obj\Debug\netcoreapp2.1\XUnitTestCalculator.csproj.CopyComplete
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\obj\Debug\netcoreapp2.1\XUnitTestCalculator.dll
+C:\Users\xiaox\Desktop\XCalculator\XCalculator\XUnitTestCalculator\obj\Debug\netcoreapp2.1\XUnitTestCalculator.pdb

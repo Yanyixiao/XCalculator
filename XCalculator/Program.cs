@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Yanyixiao
 {
-    class Program
+    public class Program
     {
 
         public class Formula
@@ -18,6 +18,7 @@ namespace Yanyixiao
         public static string[] op = { "+", "-", "*", "/" };// Operation set
         static void Main(string[] args)
         {
+
             int i;
             System.Console.WriteLine("请输入需要的题目数量：");
             int n = Convert.ToInt32(System.Console.ReadLine());
